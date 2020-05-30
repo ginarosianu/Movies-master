@@ -17,6 +17,10 @@
 	  <TypeScriptCompile Remove="ClientApp\node_modules\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <TypeScriptCompile Remove="ClientApp\src\app\movie\movie.component.spec.ts" />
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="FileContextCore" Version="3.3.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />

@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CommentComponent } from './comment/comment.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { CommentComponent } from './comment/comment.component';
         CounterComponent,
         FetchDataComponent,
         CommentComponent,
+        MovieComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,6 +30,8 @@ import { CommentComponent } from './comment/comment.component';
             { path: 'comment', component: CommentComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'comment', component: CommentComponent },
+            { path: 'movie', component: MovieComponent }
+
 
            
         ])
