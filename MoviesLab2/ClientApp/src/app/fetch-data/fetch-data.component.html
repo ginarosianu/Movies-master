@@ -1,0 +1,45 @@
+<h1 id="tableLabel">MOVIES</h1>
+
+<p>This is our Movies Board.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Genre</th>
+            <th>Duration minutes</th>
+            <th>Year of fRelease</th>
+            <th>Director</th>
+            <th>Comments</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movies">
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.description }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.minute }}</td>
+            <td>{{ movie.yearOfRelease }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.comments }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>Mai jos facem adaugarea unui film</p>
+
+
+<input [(ngModel)]="name" />
+
+<p>{{name}}</p>
+
+
+
+<button (click)="submit()">Submit!</button>
+

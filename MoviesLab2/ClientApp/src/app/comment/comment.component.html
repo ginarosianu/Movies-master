@@ -1,0 +1,44 @@
+<h1 id="tableLabel">MOVIES</h1>
+
+<p>This is our Comments Board.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="comments">
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Content</th>
+            <th>Important</th>
+            <th>For Movie</th>
+
+        </tr>
+
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let comment of comments">
+            <td>{{ comment.author }}</td>
+            <td>{{ comment.content }}</td>
+            <td>{{ comment.important }}</td>
+            <td>{{ comment.movieid }}</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+
+<p>Add comment:</p>
+
+
+<input [(ngModel)]="name" />
+
+<p>{{name}}</p>
+
+
+
+<button (click)="submit()">Submit!</button>
+
+
+<input type="date" />
