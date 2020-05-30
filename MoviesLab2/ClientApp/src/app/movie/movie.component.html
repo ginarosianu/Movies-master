@@ -14,7 +14,8 @@
             <th>Duration minutes</th>
             <th>Year of fRelease</th>
             <th>Director</th>
-            <th>Comments</th>
+            <th>Number of Comments</th>
+            <th>Operations</th>
 
         </tr>
     </thead>
@@ -26,13 +27,15 @@
             <td>{{ movie.minute }}</td>
             <td>{{ movie.yearOfRelease }}</td>
             <td>{{ movie.director }}</td>
-            <td>{{ movie.comments }}</td>
+            <td>{{ movie.numberOfComments }}</td>
+            <td><a>Details</a>|<a>Edit</a>|<a>Delete</a></td>
+
         </tr>
     </tbody>
 </table>
 
 
-<p>Mai jos facem adaugarea unui film</p>
+<p>Add a movie</p>
 
 
 <input [(ngModel)]="name" />

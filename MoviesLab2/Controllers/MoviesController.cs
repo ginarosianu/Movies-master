@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesLab2.Models;
+using MoviesLab2.ViewModel;
 
 namespace MoviesLab2.Controllers
 {
@@ -33,7 +34,7 @@ namespace MoviesLab2.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMovies(
+        public async Task<ActionResult<IEnumerable<MovieWithNumberOfComments>>> GetMovies(
             [FromQuery]DateTime? from = null,
             [FromQuery]DateTime? to = null)
         {
@@ -49,6 +50,20 @@ namespace MoviesLab2.Controllers
 
             var resultList = await result
                 .OrderByDescending(m => m.YearOfRelease)
+                .Select(m => new MovieWithNumberOfComments 
+                { 
+                    Id = m.Id,
+                    Title =m.Title,
+                    Description = m.Description,
+                    Genre = m.Genre,
+                    Minute = m.Minute,
+                    YearOfRelease = m.YearOfRelease,
+                    Director = m.Director,
+                    DateAdded = m.DateAdded,
+                    Rating = m.Rating,
+                    Watched = m.Watched,
+                    NumberOfComments = m.Comments.Count
+                })
                 .ToListAsync();
             return resultList;
         }
