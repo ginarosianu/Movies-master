@@ -14,7 +14,7 @@
             <th>Duration minutes</th>
             <th>Year of fRelease</th>
             <th>Director</th>
-            <th>Number of Comments</th>
+            <th>No of Comments</th>
             <th>Operations</th>
 
         </tr>
@@ -28,7 +28,11 @@
             <td>{{ movie.yearOfRelease }}</td>
             <td>{{ movie.director }}</td>
             <td>{{ movie.numberOfComments }}</td>
-            <td><a>Details</a>|<a>Edit</a>|<a>Delete</a></td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/movie', movie.id]" routerLinkActive="active">Details</a> |
+                <a class="btn btn-success">Edit</a> |
+                <a class="btn btn-danger">Delete</a>
+            </td>
 
         </tr>
     </tbody>

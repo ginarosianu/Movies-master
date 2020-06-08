@@ -11,10 +11,8 @@ export class MovieComponent {
 
     public name: string = "";
 
-    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
-
-        
-
+    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string)
+    { 
         this.loadMovies();
     }
 
@@ -39,9 +37,7 @@ export class MovieComponent {
 
 
         this.http.post(this.baseUrl + 'api/Movies', movie).subscribe(result => {
-
             console.log('success!');
-
             this.loadMovies();
         },
             error => {
@@ -53,14 +49,9 @@ export class MovieComponent {
     }
 }
 
-interface WeatherForecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
 
 interface Movie {
+    id: number,
     title: string;
     description: string;
     genre: Genre;

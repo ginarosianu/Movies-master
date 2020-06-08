@@ -50,20 +50,8 @@ namespace MoviesLab2.Controllers
 
             var resultList = await result
                 .OrderByDescending(m => m.YearOfRelease)
-                .Select(m => new MovieWithNumberOfComments 
-                { 
-                    Id = m.Id,
-                    Title =m.Title,
-                    Description = m.Description,
-                    Genre = m.Genre,
-                    Minute = m.Minute,
-                    YearOfRelease = m.YearOfRelease,
-                    Director = m.Director,
-                    DateAdded = m.DateAdded,
-                    Rating = m.Rating,
-                    Watched = m.Watched,
-                    NumberOfComments = m.Comments.Count
-                })
+                .Include(m => m.Comments)
+                .Select(m => MovieWithNumberOfComments.FromMovie(m))
                 .ToListAsync();
             return resultList;
         }
@@ -78,18 +66,19 @@ namespace MoviesLab2.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         // GET: api/Movies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Movie>> GetMovie(long id)
+        public async Task<ActionResult<MovieDetails>> GetMovie(long id)
         {
-            var movie = await _context.Movies
-                                             .Include(m => m.Comments)
-                                             .FirstOrDefaultAsync (m => m.Id == id);
+            var movie = await _context
+                .Movies
+                .Include(m => m.Comments)
+                .FirstOrDefaultAsync (m => m.Id == id);
 
             if (movie == null)
             {
                 return NotFound();
             }
 
-            return movie;
+            return MovieDetails.FromMovie(movie);
         }
 
         /// <summary>

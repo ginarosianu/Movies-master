@@ -5,6 +5,7 @@
 <p *ngIf="!comments"><em>Loading...</em></p>
 
 
+
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="comments">
     <thead>
         <tr>
@@ -12,24 +13,28 @@
             <th>Content</th>
             <th>Important</th>
             <th>For Movie</th>
+            <th>Operations</th>
 
         </tr>
-
-
     </thead>
+
     <tbody>
         <tr *ngFor="let comment of comments">
             <td>{{ comment.author }}</td>
             <td>{{ comment.content }}</td>
             <td>{{ comment.important }}</td>
             <td>{{ comment.movieid }}</td>
-            
+            <td>
+                <a>Details</a> |
+                <a>Edit</a> |
+                <a>Delete</a>
+            </td>
         </tr>
     </tbody>
 </table>
 
 
-<p>Add comment:</p>
+<p>Add a comment:</p>
 
 
 <input [(ngModel)]="name" />
@@ -41,4 +46,5 @@
 <button (click)="submit()">Submit!</button>
 
 
-<input type="date" />
+
+

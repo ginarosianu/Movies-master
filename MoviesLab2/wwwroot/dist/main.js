@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">COMMENTS</h1>\n\n<p>This is our Comments Board.</p>\n\n<p *ngIf=\"!comments\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"comments\">\n    <thead>\n        <tr>\n            <th>Author</th>\n            <th>Content</th>\n            <th>Important</th>\n            <th>For Movie</th>\n\n        </tr>\n\n\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let comment of comments\">\n            <td>{{ comment.author }}</td>\n            <td>{{ comment.content }}</td>\n            <td>{{ comment.important }}</td>\n            <td>{{ comment.movieid }}</td>\n            \n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add comment:</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n\n<input type=\"date\" />\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">COMMENTS</h1>\n\n<p>This is our Comments Board.</p>\n\n<p *ngIf=\"!comments\"><em>Loading...</em></p>\n\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"comments\">\n    <thead>\n        <tr>\n            <th>Author</th>\n            <th>Content</th>\n            <th>Important</th>\n            <th>For Movie</th>\n            <th>Operations</th>\n\n        </tr>\n    </thead>\n\n    <tbody>\n        <tr *ngFor=\"let comment of comments\">\n            <td>{{ comment.author }}</td>\n            <td>{{ comment.content }}</td>\n            <td>{{ comment.important }}</td>\n            <td>{{ comment.movieid }}</td>\n            <td>\n                <a>Details</a> |\n                <a>Edit</a> |\n                <a>Delete</a>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a comment:</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n\n\n\n");
 
 /***/ }),
 
@@ -65,6 +65,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>movie-details works!</p>\n\n\n<p *ngIf=\"movie\"><em>{{ movie.title }}</em></p>\n\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie.component.html":
 /*!**********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie.component.html ***!
@@ -74,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Description</th>\n            <th>Genre</th>\n            <th>Duration minutes</th>\n            <th>Year of fRelease</th>\n            <th>Director</th>\n            <th>Number of Comments</th>\n            <th>Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td><a>Details</a>|<a>Edit</a>|<a>Delete</a></td>\n\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a movie</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Description</th>\n            <th>Genre</th>\n            <th>Duration minutes</th>\n            <th>Year of fRelease</th>\n            <th>Director</th>\n            <th>No of Comments</th>\n            <th>Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td>\n                <a class=\"btn btn-primary\" [routerLink]=\"['/movie', movie.id]\" routerLinkActive=\"active\">Details</a> |\n                <a class=\"btn btn-success\">Edit</a> |\n                <a class=\"btn btn-danger\">Delete</a>\n            </td>\n\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a movie</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
 
 /***/ }),
 
@@ -173,6 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
 /* harmony import */ var _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./comment/comment.component */ "./src/app/comment/comment.component.ts");
 /* harmony import */ var _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./movie/movie.component */ "./src/app/movie/movie.component.ts");
+/* harmony import */ var _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./movie-details/movie-details.component */ "./src/app/movie-details/movie-details.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -182,6 +196,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -206,6 +221,7 @@ AppModule = __decorate([
             _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"],
             _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__["CommentComponent"],
             _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__["MovieComponent"],
+            _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -213,10 +229,10 @@ AppModule = __decorate([
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                 { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
+                { path: 'movie', component: _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__["MovieComponent"] },
                 { path: 'comment', component: _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__["CommentComponent"] },
                 { path: 'fetch-data', component: _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"] },
-                { path: 'comment', component: _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__["CommentComponent"] },
-                { path: 'movie', component: _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__["MovieComponent"] }
+                { path: 'movie/:movieId', component: _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"] },
             ])
         ],
         providers: [],
@@ -261,10 +277,7 @@ let CommentComponent = class CommentComponent {
     constructor(http, baseUrl) {
         this.http = http;
         this.baseUrl = baseUrl;
-        this.name = "ceva";
-        http.get(baseUrl + 'comment').subscribe(result => {
-            this.comments = result;
-        }, error => console.error(error));
+        this.name = "test";
         this.loadComments();
     }
     loadComments() {
@@ -482,6 +495,87 @@ HomeComponent = __decorate([
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "movie1.jpg";
+
+/***/ }),
+
+/***/ "./src/app/movie-details/movie-details.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/movie-details/movie-details.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vdmllLWRldGFpbHMvbW92aWUtZGV0YWlscy5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/movie-details/movie-details.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/movie-details/movie-details.component.ts ***!
+  \**********************************************************/
+/*! exports provided: MovieDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieDetailsComponent", function() { return MovieDetailsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+let MovieDetailsComponent = class MovieDetailsComponent {
+    constructor(http, baseUrl, route) {
+        this.http = http;
+        this.baseUrl = baseUrl;
+        this.route = route;
+    }
+    loadMovie(movieId) {
+        this.http.get(this.baseUrl + 'api/Movies/' + movieId).subscribe(result => {
+            this.movie = result;
+            console.log(this.movie);
+        }, error => console.error(error));
+    }
+    ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+            this.loadMovie(params.get('movieId'));
+        });
+    }
+};
+MovieDetailsComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: ['BASE_URL',] }] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+];
+MovieDetailsComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-movie-details',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./movie-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./movie-details.component.css */ "./src/app/movie-details/movie-details.component.css")).default]
+    }),
+    __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])('BASE_URL')),
+    __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], String, _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+], MovieDetailsComponent);
+
+
 
 /***/ }),
 

@@ -10,6 +10,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CommentComponent } from './comment/comment.component';
 import { MovieComponent } from './movie/movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { MovieComponent } from './movie/movie.component';
         FetchDataComponent,
         CommentComponent,
         MovieComponent,
+        MovieDetailsComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,13 +29,11 @@ import { MovieComponent } from './movie/movie.component';
         FormsModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'movie', component: MovieComponent },
             { path: 'comment', component: CommentComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'comment', component: CommentComponent },
-            { path: 'movie', component: MovieComponent }
-
-
-           
+            { path: 'movie/:movieId', component: MovieDetailsComponent },
+            
         ])
     ],
     providers: [],

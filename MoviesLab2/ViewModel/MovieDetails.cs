@@ -1,13 +1,13 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using MoviesLab2.Models;
+﻿using MoviesLab2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace MoviesLab2.ViewModel
 {
-    public class MovieWithNumberOfComments
+    public class MovieDetails
     {
         public long Id { get; set; }
         public string Title { get; set; }
@@ -20,13 +20,11 @@ namespace MoviesLab2.ViewModel
         // [Range(1, 10)]
         public int Rating { get; set; }
         public bool Watched { get; set; }
-        public long NumberOfComments { get; set; }
+        public List<CommentForMovieDetails> Comments { get; set; }
 
-
-        public static MovieWithNumberOfComments FromMovie(Movie movie)
+        public static MovieDetails FromMovie(Movie movie) 
         {
-
-            return new MovieWithNumberOfComments
+            return new MovieDetails
             {
                 Id = movie.Id,
                 Title = movie.Title,
@@ -38,9 +36,14 @@ namespace MoviesLab2.ViewModel
                 DateAdded = movie.DateAdded,
                 Rating = movie.Rating,
                 Watched = movie.Watched,
-                NumberOfComments = movie.Comments.Count
+                Comments = movie.Comments.Select(m => CommentForMovieDetails.FromComment(m)).ToList()
             };
-
         }
     }
 }
+
+
+
+
+
+            
