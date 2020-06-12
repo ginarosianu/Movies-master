@@ -11,8 +11,13 @@ namespace MoviesLab2.Models
         public string Author { get; set; }
         public string Content { get; set; }
         public bool Important { get; set; }
-        public long  MovieId { get; set; }
-        
+
+        //public long  MovieId { get; set; }
+
+        public Movie Movie { get; set; }
+
+        public User AddedBy { get; set; }
+
     }
 
 }

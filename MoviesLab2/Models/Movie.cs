@@ -19,6 +19,8 @@ namespace MoviesLab2.Models
         // [Range(1, 10)]
         public int Rating { get; set; }
         public bool Watched { get; set; }
+
+        public User AddedBy { get; set; }
         public List<Comment> Comments {get; set;}
     }
 }

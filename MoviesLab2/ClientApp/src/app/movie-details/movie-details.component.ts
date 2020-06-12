@@ -18,7 +18,6 @@ export class MovieDetailsComponent implements OnInit {
 
     }
 
-
     loadMovie(movieId: string) {
         this.http.get<MovieWithDetails>(this.baseUrl + 'api/Movies/'+ movieId).subscribe(result => {
             this.movie = result;

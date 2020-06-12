@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesLab2.Models;
-using MoviesLab2.ViewModel;
+using MoviesLab2.ViewModels;
 
 namespace MoviesLab2.Controllers
 {
@@ -71,7 +71,7 @@ namespace MoviesLab2.Controllers
             var movie = await _context
                 .Movies
                 .Include(m => m.Comments)
-                .FirstOrDefaultAsync (m => m.Id == id);
+                .SingleOrDefaultAsync (m => m.Id == id);
 
             if (movie == null)
             {

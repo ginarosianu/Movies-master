@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MoviesLab2.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,22 @@ namespace MoviesLab2.Models
         {
             using (var context = new MoviesDbContext(serviceProvider.GetRequiredService<DbContextOptions<MoviesDbContext>>()))
             {
+
+                if (!context.Users.Any()) 
+                {
+                    context.Users.Add(new User
+                    {
+                        FirstName = "First",
+                        LastName = "Last",
+                        Username = "FirstUsername",
+                        Password = HashUtils.GetHashString("parolasigura")
+
+                    });
+                    context.SaveChanges();
+                }
+                
+                
+                
                 // Look for any movies.
                 if (context.Movies.Any())
                 {

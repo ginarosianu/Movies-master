@@ -11,6 +11,11 @@ using FluentValidation.AspNetCore;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
 using System.IO;
+using MoviesLab2.Helpers;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using MoviesLab2.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace MoviesLab2
 {
@@ -22,10 +27,39 @@ namespace MoviesLab2
         }
 
         public IConfiguration Configuration { get; }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // configure strongly typed settings objects
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            // JWT Configuration
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            // configure DI (Dependency Injection) for application services
+            services.AddScoped<IUserService, UserService>();
+
+
             services
                 .AddControllers()
                 .AddJsonOptions(options =>

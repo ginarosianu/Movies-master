@@ -5,17 +5,17 @@
 <p *ngIf="!movies"><em>Loading...</em></p>
 
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+<table style="width:100%" class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Genre</th>
-            <th>Duration minutes</th>
-            <th>Year of fRelease</th>
-            <th>Director</th>
-            <th>No of Comments</th>
-            <th>Operations</th>
+            <th style="width:10%">Title</th>
+            <th style="width:10%">Description</th>
+            <th style="width:10%">Genre</th>
+            <th style="width:10%">Duration minutes</th>
+            <th style="width:10%">Year of Release</th>
+            <th style="width:10%">Director</th>
+            <th style="width:10%">No of Comments</th>
+            <th style="width:30%">Operations</th>
 
         </tr>
     </thead>
@@ -31,9 +31,8 @@
             <td>
                 <a class="btn btn-primary" [routerLink]="['/movie', movie.id]" routerLinkActive="active">Details</a> |
                 <a class="btn btn-success">Edit</a> |
-                <a class="btn btn-danger">Delete</a>
+                <a class="btn btn-danger" (click)=" delete(movie.id)" >Delete</a>
             </td>
-
         </tr>
     </tbody>
 </table>

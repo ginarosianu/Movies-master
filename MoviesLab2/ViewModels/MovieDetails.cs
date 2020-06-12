@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace MoviesLab2.ViewModel
+namespace MoviesLab2.ViewModels
 {
     public class MovieDetails
     {
@@ -22,7 +22,7 @@ namespace MoviesLab2.ViewModel
         public bool Watched { get; set; }
         public List<CommentForMovieDetails> Comments { get; set; }
 
-        public static MovieDetails FromMovie(Movie movie) 
+       public static MovieDetails FromMovie(Movie movie) 
         {
             return new MovieDetails
             {
@@ -36,7 +36,9 @@ namespace MoviesLab2.ViewModel
                 DateAdded = movie.DateAdded,
                 Rating = movie.Rating,
                 Watched = movie.Watched,
-                Comments = movie.Comments.Select(m => CommentForMovieDetails.FromComment(m)).ToList()
+                Comments = movie
+                                .Comments
+                                .Select(c => CommentForMovieDetails.FromComment(c)).ToList()
             };
         }
     }

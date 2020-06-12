@@ -23,6 +23,19 @@ export class MovieComponent {
         }, error => console.error(error));
     }
 
+    delete(movieId: string) {
+        if (confirm('Are you sure you want to delete the movie with id ' + movieId + '?')) {
+            this.http.delete(this.baseUrl + 'api/Movies/' + movieId)
+                .subscribe
+                (
+                    result => {
+                        alert('Movie successfully deleted!');
+                        this.loadMovies();
+                    },
+                    error => alert('Cannot delete movie - maybe it has comments?')
+                )
+        }
+    }
     submit() {
         var movie: Movie = <Movie>{};
         movie.title = this.name;

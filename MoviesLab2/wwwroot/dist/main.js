@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>movie-details works!</p>\n\n\n<p *ngIf=\"movie\"><em>{{ movie.title }}</em></p>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>movie-details works!</p>\n\n\n<p *ngIf=\"!movie\"><em>Loading ...</em></p>\n\n<a [routerLink]=\"['/movie']\" routerLinkActive=\"active\">Back</a>\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movie\">\n    <tbody>\n        <tr>\n            <th>Title</th>\n            <td>{{ movie.title }}</td>\n        </tr>\n        <tr>\n            <th>Description</th>\n            <td>{{ movie.description }}</td>\n        </tr>\n        <tr>\n            <th>Genre</th>\n            <td>{{ movie.genre }}</td>\n        </tr>\n\n        <tr>\n            <th>Duration minutes</th>\n            <td>{{ movie.minute }}</td>\n        </tr>\n\n        <tr>\n            <th>Year of Release</th>\n            <td>{{ movie.yearOfRelease }}</td>\n        </tr>\n\n        <tr>\n            <th>Director</th>\n            <td>{{ movie.director }}</td>\n        </tr>\n\n        <tr>\n            <th>DateAdded</th>\n            <td>{{ movie.dateAdded }}</td>\n        </tr>\n\n        <tr>\n            <th>Rating</th>\n            <td>{{ movie.rating }}</td>\n        </tr>\n\n        <tr>\n            <th>Watched</th>\n            <td>{{ movie.watched }}</td>\n        </tr>\n    </tbody>\n</table>\n\n<th>Comments</th>\n<table style=\"width:100%\" *ngIf=\"movie\">\n    <thead>\n        <tr>\n            <th style=\"width:30%\">Content</th>\n            <th style=\"width:30%\">Author</th>\n            <th style=\"width:30%\">Important</th>\n        </tr>\n    </thead>\n    <tr *ngFor=\"let comment of movie.comments\">\n        <td style=\"width:30%\">{{ comment.content }}</td>\n        <td style=\"width:30%\">{{ comment.author }}</td>\n        <td style=\"width:30%\">{{ comment.important}}</td>\n    </tr>\n</table>\n<a [routerLink]=\"['/movie']\" routerLinkActive=\"active\">Back</a>\n\n\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Description</th>\n            <th>Genre</th>\n            <th>Duration minutes</th>\n            <th>Year of fRelease</th>\n            <th>Director</th>\n            <th>No of Comments</th>\n            <th>Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td>\n                <a class=\"btn btn-primary\" [routerLink]=\"['/movie', movie.id]\" routerLinkActive=\"active\">Details</a> |\n                <a class=\"btn btn-success\">Edit</a> |\n                <a class=\"btn btn-danger\">Delete</a>\n            </td>\n\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a movie</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table style=\"width:100%\" class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th style=\"width:10%\">Title</th>\n            <th style=\"width:10%\">Description</th>\n            <th style=\"width:10%\">Genre</th>\n            <th style=\"width:10%\">Duration minutes</th>\n            <th style=\"width:10%\">Year of Release</th>\n            <th style=\"width:10%\">Director</th>\n            <th style=\"width:10%\">No of Comments</th>\n            <th style=\"width:30%\">Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td>\n                <a class=\"btn btn-primary\" [routerLink]=\"['/movie', movie.id]\" routerLinkActive=\"active\">Details</a> |\n                <a class=\"btn btn-success\">Edit</a> |\n                <a class=\"btn btn-danger\" (click)=\" delete(movie.id)\" >Delete</a>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a movie</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
 
 /***/ }),
 
@@ -507,7 +507,7 @@ module.exports = __webpack_require__.p + "movie1.jpg";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vdmllLWRldGFpbHMvbW92aWUtZGV0YWlscy5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".button {\r\n    border: none;\r\n    background-color: transparent;\r\n}\r\n\r\n.btn-link {\r\n    border: none;\r\n    background-color: transparent;\r\n    border: none;\r\n    color: #212529\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWUtZGV0YWlscy9tb3ZpZS1kZXRhaWxzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0FBQ2pDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDZCQUE2QjtJQUM3QixZQUFZO0lBQ1o7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vdmllLWRldGFpbHMvbW92aWUtZGV0YWlscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ1dHRvbiB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuLmJ0bi1saW5rIHtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgY29sb3I6ICMyMTI1MjlcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -620,6 +620,15 @@ let MovieComponent = class MovieComponent {
             this.movies = result;
             console.log(this.movies);
         }, error => console.error(error));
+    }
+    delete(movieId) {
+        if (confirm('Are you sure you want to delete the movie with id ' + movieId + '?')) {
+            this.http.delete(this.baseUrl + 'api/Movies/' + movieId)
+                .subscribe(result => {
+                alert('Movie successfully deleted!');
+                this.loadMovies();
+            }, error => alert('Cannot delete movie - maybe it has comments?'));
+        }
     }
     submit() {
         var movie = {};
