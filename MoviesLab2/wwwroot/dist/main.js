@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!forecasts\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Description</th>\n            <th>Genre</th>\n            <th>Duration minutes</th>\n            <th>Year of fRelease</th>\n            <th>Director</th>\n            <th>Comments</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.comments }}</td>\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Mai jos facem adaugarea unui film</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!forecasts\"><em>Loading...</em></p>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Description</th>\n            <th>Genre</th>\n            <th>Duration minutes</th>\n            <th>Year of fRelease</th>\n            <th>Director</th>\n            <th>Comments</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.comments }}</td>\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Mai jos facem adaugarea unui film</p>\n\n\n<!--<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n-->\n");
 
 /***/ }),
 
@@ -65,10 +65,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-add/movie-add.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-add/movie-add.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>movie-add works!</p>\n<h1 id=\"tableLabel\"> Add new movie.</h1>\n\n<div class=\"container\">\n    <div class=\" row\">\n        <div class=\" col-10\">\n            <div class=\" jumbotron\">\n                <form [formGroup]=\"movieForm\" (ngSubmit)=\"onSubmit(movieForm)\">\n\n                    <div class=\"form-group\">\n                        <label>Title</label>\n                        <input type=\"text\" class=\" form-control\" formControlName=\"title\" />\n                        <!--<span *ngIf=\"form.get('title').errors?.required\">Title is required</span>-->\n                        <span *ngIf=\"movieForm.get('title').errors?.serverError\">\n                            {{ movieForm.get('title').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\" form-control\" formControlName=\"description\" />\n                        <!--<span *ngIf=\"form.get('description').errors?.required\">Description is required</span>-->\n                        <span *ngIf=\"movieForm.get('description').errors?.serverError\">\n                            {{ movieForm.get('description').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <!--<div class=\"form-group\">\n                        <label>Genre</label>\n                        <select class=\" form-control\" formControlName=\"genre\">\n                            <option value=\"0\">Select genre</option>\n                            <option *ngFor=\"let movieGenre of movieGenres\" [value]=\"movieGenre\">-->\n                                <!--{{movieGenre}}-->\n                            <!--</option>\n                        </select>\n                    </div>-->\n\n                    <div class=\"form-group\">\n                        <label>Genre</label>\n                        <select class=\" form-control\" formControlName=\"genre\">\n                            <option value=\"comedy\">Comedy</option>\n                            <option value=\"drama\">Drama</option>\n                        </select>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Minute</label>\n                        <input type=\"number\" class=\" form-control\" placeholder=\"0,00\" formControlName=\"minute\" />\n                        <!--<span *ngIf=\"form.get('minute').errors?.required\">Duration is required</span>-->\n                        <span *ngIf=\"movieForm.get('minute').errors?.serverError\">\n                            {{ movieForm.get('minute').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Year of Release</label>\n                        <input type=\"number\" class=\" form-control\" formControlName=\"yearOfRelease\" />\n                        <span *ngIf=\"movieForm.get('yearOfRelease').errors?.serverError\">\n                            {{ movieForm.get('yearOfRelease').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Director</label>\n                        <input type=\"text\" class=\" form-control\" formControlName=\"director\" />\n                        <!--<span *ngIf=\"form.get('director').errors?.required\">Director is required</span>-->\n                        <span *ngIf=\"movieForm.get('director').errors?.serverError\">\n                            {{ movieForm.get('director').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Date</label>\n                        <input type=\"datetime\" class=\" form-control\" placeholder=\"2020-06-14\" formControlName=\"dateAdded\" />\n                        <!--<span *ngIf=\"form.get('dateAdded').errors?.required\">Date is required</span>-->\n                        <span *ngIf=\"movieForm.get('dateAdded').errors?.serverError\">\n                            {{ movieForm.get('dateAdded').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <div class=\"form-group\">\n                        <label>Rating</label>\n                        <input type=\"number\" class=\" form-control\" placeholder=\"0,00\" formControlName=\"rating\" />\n                        <span *ngIf=\"movieForm.get('rating').errors?.serverError\">\n                            {{ movieForm.get('rating').errors?.serverError }}\n                        </span>\n                    </div>\n\n                    <!--<div class=\"form-group\">\n                        <label>Watched</label>\n                        <select class=\" form-control\" formControlName=\"watched\">\n                            <option value=\"0\">Select</option>\n                            <option *ngFor=\"let movieWatched of movieWatcheds\" [value]=\"movieWatched\">-->\n                                <!--{{movieWatched}}-->\n                            <!--</option>\n                        </select>\n                    </div>-->\n\n\n                    <div class=\"form-group\">\n                        <label>Watched</label>\n                        <select class=\" form-control\" formControlName=\"watched\">\n                            <option value=\"true\">True</option>\n                            <option value=\"false\">False</option>\n                        </select>\n                    </div>\n\n                    <button class=\"btn btn-secondary btnLeft\" type='submit' [disabled]=\"!movieForm.valid\">Save</button>\n                    <button class=\"btn btn-secondary btnRight\" (click)=\"goBack()\">Back</button>\n\n                </form>\n            </div>\n        </div>\n    </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-details/movie-details.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-details/movie-details.component.html ***!
+  \********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -87,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table style=\"width:100%\" class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th style=\"width:10%\">Title</th>\n            <th style=\"width:10%\">Description</th>\n            <th style=\"width:10%\">Genre</th>\n            <th style=\"width:10%\">Duration minutes</th>\n            <th style=\"width:10%\">Year of Release</th>\n            <th style=\"width:10%\">Director</th>\n            <th style=\"width:10%\">No of Comments</th>\n            <th style=\"width:30%\">Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td>\n                <a class=\"btn btn-primary\" [routerLink]=\"['/movie', movie.id]\" routerLinkActive=\"active\">Details</a> |\n                <a class=\"btn btn-success\">Edit</a> |\n                <a class=\"btn btn-danger\" (click)=\" delete(movie.id)\" >Delete</a>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n\n<p>Add a movie</p>\n\n\n<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">MOVIES</h1>\n\n<p>This is our Movies Board.</p>\n\n<p *ngIf=\"!movies\"><em>Loading...</em></p>\n\n\n<table style=\"width:100%\" class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"movies\">\n    <thead>\n        <tr>\n            <th style=\"width:10%\">Title</th>\n            <th style=\"width:10%\">Description</th>\n            <th style=\"width:10%\">Genre</th>\n            <th style=\"width:10%\">Duration minutes</th>\n            <th style=\"width:10%\">Year of Release</th>\n            <th style=\"width:10%\">Director</th>\n            <th style=\"width:10%\">No of Comments</th>\n            <th style=\"width:30%\">Operations</th>\n\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let movie of movies\">\n            <td>{{ movie.title }}</td>\n            <td>{{ movie.description }}</td>\n            <td>{{ movie.genre }}</td>\n            <td>{{ movie.minute }}</td>\n            <td>{{ movie.yearOfRelease }}</td>\n            <td>{{ movie.director }}</td>\n            <td>{{ movie.numberOfComments }}</td>\n            <td>\n                <a class=\"btn btn-primary\" [routerLink]=\"['/movie', movie.id]\" routerLinkActive=\"active\">Details</a> |\n                <a class=\"btn btn-warning\">Edit</a> |\n                <a class=\"btn btn-danger\" (click)=\" delete(movie.id)\">Delete</a>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n<td><a class=\"btn btn-success\" [routerLink]=\"['/movie-add/0']\">Add movie</a></td>\n\n\n\n<!--<input [(ngModel)]=\"name\" />\n\n<p>{{name}}</p>\n\n\n\n<button (click)=\"submit()\">Submit!</button>\n-->\n");
 
 /***/ }),
 
@@ -186,7 +199,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
 /* harmony import */ var _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./comment/comment.component */ "./src/app/comment/comment.component.ts");
 /* harmony import */ var _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./movie/movie.component */ "./src/app/movie/movie.component.ts");
-/* harmony import */ var _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./movie-details/movie-details.component */ "./src/app/movie-details/movie-details.component.ts");
+/* harmony import */ var _movie_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./movie/movie-details/movie-details.component */ "./src/app/movie/movie-details/movie-details.component.ts");
+/* harmony import */ var _movie_movie_add_movie_add_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./movie/movie-add/movie-add.component */ "./src/app/movie/movie-add/movie-add.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,6 +211,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -221,19 +238,22 @@ AppModule = __decorate([
             _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"],
             _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__["CommentComponent"],
             _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__["MovieComponent"],
-            _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"],
+            _movie_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"],
+            _movie_movie_add_movie_add_component__WEBPACK_IMPORTED_MODULE_13__["MovieAddComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                 { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
                 { path: 'movie', component: _movie_movie_component__WEBPACK_IMPORTED_MODULE_11__["MovieComponent"] },
                 { path: 'comment', component: _comment_comment_component__WEBPACK_IMPORTED_MODULE_10__["CommentComponent"] },
                 { path: 'fetch-data', component: _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"] },
-                { path: 'movie/:movieId', component: _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"] },
-            ])
+                { path: 'movie/:movieId', component: _movie_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_12__["MovieDetailsComponent"] },
+                { path: 'movie-add/:id', component: _movie_movie_add_movie_add_component__WEBPACK_IMPORTED_MODULE_13__["MovieAddComponent"] },
+            ]),
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"]
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -498,23 +518,181 @@ module.exports = __webpack_require__.p + "movie1.jpg";
 
 /***/ }),
 
-/***/ "./src/app/movie-details/movie-details.component.css":
-/*!***********************************************************!*\
-  !*** ./src/app/movie-details/movie-details.component.css ***!
-  \***********************************************************/
+/***/ "./src/app/movie/movie-add/movie-add.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/movie/movie-add/movie-add.component.css ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".button {\r\n    border: none;\r\n    background-color: transparent;\r\n}\r\n\r\n.btn-link {\r\n    border: none;\r\n    background-color: transparent;\r\n    border: none;\r\n    color: #212529\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWUtZGV0YWlscy9tb3ZpZS1kZXRhaWxzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0FBQ2pDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDZCQUE2QjtJQUM3QixZQUFZO0lBQ1o7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vdmllLWRldGFpbHMvbW92aWUtZGV0YWlscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ1dHRvbiB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuLmJ0bi1saW5rIHtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgY29sb3I6ICMyMTI1MjlcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vdmllL21vdmllLWFkZC9tb3ZpZS1hZGQuY29tcG9uZW50LmNzcyJ9 */");
 
 /***/ }),
 
-/***/ "./src/app/movie-details/movie-details.component.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/movie-details/movie-details.component.ts ***!
-  \**********************************************************/
+/***/ "./src/app/movie/movie-add/movie-add.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/movie/movie-add/movie-add.component.ts ***!
+  \********************************************************/
+/*! exports provided: MovieAddComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieAddComponent", function() { return MovieAddComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _shared_movie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/movie.service */ "./src/app/movie/shared/movie.service.ts");
+/* harmony import */ var _shared_enum_movieGenre_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/enum/movieGenre.enum */ "./src/app/movie/shared/enum/movieGenre.enum.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _shared_enum_movieWatched__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/enum/movieWatched */ "./src/app/movie/shared/enum/movieWatched.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+
+let MovieAddComponent = class MovieAddComponent {
+    constructor(movieService, location, fb, route) {
+        this.movieService = movieService;
+        this.location = location;
+        this.fb = fb;
+        this.route = route;
+        this.movieGenres = Object.values(_shared_enum_movieGenre_enum__WEBPACK_IMPORTED_MODULE_4__["MovieGenre"]);
+        this.movieWatched = Object.values(_shared_enum_movieWatched__WEBPACK_IMPORTED_MODULE_6__["MovieWatched"]);
+    }
+    ngOnInit() {
+        this.addMovieForm();
+        this.getMovie();
+    }
+    addMovieForm() {
+        this.movieForm = this.fb.group({
+            title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            genre: [''],
+            minute: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].min(0)],
+            yearOfRelease: [0],
+            director: [''],
+            dateAdded: [''],
+            rating: [0],
+            watched: ['']
+        });
+    }
+    getMovie() {
+        var id = parseInt(this.route.snapshot.paramMap.get('id'));
+        if (id !== 0) {
+            this.movieService.getMovie(id)
+                .subscribe(result => {
+                this.movie = result;
+                if (this.movie !== null) {
+                    this.movieForm.setValue({
+                        title: this.movie.title,
+                        description: this.movie.description,
+                        genre: this.movie.genre,
+                        minute: this.movie.minute,
+                        yearOfRelease: this.movie.yearOfRelease,
+                        director: this.movie.director,
+                        dateAdded: this.movie.dateAdded,
+                        rating: this.movie.rating,
+                        watched: this.movie.watched,
+                    });
+                }
+            });
+        }
+    }
+    onSubmit({ value, valid }) {
+        console.log("wrong place");
+        if (valid) {
+            var id = parseInt(this.route.snapshot.paramMap.get('id'));
+            if (id === 0) {
+                this.movieService.add(value)
+                    .subscribe(_ => this.location.back(), err => {
+                    const validationErrors = err.error.errors;
+                    Object.keys(validationErrors).forEach(prop => {
+                        const formControl = this.movieForm.get(prop.toLowerCase());
+                        if (formControl) {
+                            formControl.setErrors({
+                                serverError: validationErrors[prop][0]
+                            });
+                        }
+                    });
+                });
+            }
+            else {
+                value.id = id;
+                this.movieService.update(id, value)
+                    .subscribe(_ => this.location.back(), err => {
+                    const validationErrors = err.error.errors;
+                    Object.keys(validationErrors).forEach(prop => {
+                        const formControl = this.movieForm.get(prop.toLowerCase());
+                        if (formControl) {
+                            formControl.setErrors({
+                                serverError: validationErrors[prop][0]
+                            });
+                        }
+                    });
+                });
+            }
+        }
+    }
+    goBack() {
+        this.location.back();
+    }
+};
+MovieAddComponent.ctorParameters = () => [
+    { type: _shared_movie_service__WEBPACK_IMPORTED_MODULE_3__["MovieService"] },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+];
+MovieAddComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-movie-add',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./movie-add.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-add/movie-add.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./movie-add.component.css */ "./src/app/movie/movie-add/movie-add.component.css")).default]
+    }),
+    __metadata("design:paramtypes", [_shared_movie_service__WEBPACK_IMPORTED_MODULE_3__["MovieService"],
+        _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+], MovieAddComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/movie/movie-details/movie-details.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/movie/movie-details/movie-details.component.css ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".button {\r\n    border: none;\r\n    background-color: transparent;\r\n}\r\n\r\n.btn-link {\r\n    border: none;\r\n    background-color: transparent;\r\n    border: none;\r\n    color: #212529\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWUvbW92aWUtZGV0YWlscy9tb3ZpZS1kZXRhaWxzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0FBQ2pDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDZCQUE2QjtJQUM3QixZQUFZO0lBQ1o7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vdmllL21vdmllLWRldGFpbHMvbW92aWUtZGV0YWlscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ1dHRvbiB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuLmJ0bi1saW5rIHtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgY29sb3I6ICMyMTI1MjlcclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/movie/movie-details/movie-details.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/movie/movie-details/movie-details.component.ts ***!
+  \****************************************************************/
 /*! exports provided: MovieDetailsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -568,8 +746,8 @@ MovieDetailsComponent.ctorParameters = () => [
 MovieDetailsComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-movie-details',
-        template: __importDefault(__webpack_require__(/*! raw-loader!./movie-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie-details/movie-details.component.html")).default,
-        styles: [__importDefault(__webpack_require__(/*! ./movie-details.component.css */ "./src/app/movie-details/movie-details.component.css")).default]
+        template: __importDefault(__webpack_require__(/*! raw-loader!./movie-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/movie/movie-details/movie-details.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./movie-details.component.css */ "./src/app/movie/movie-details/movie-details.component.css")).default]
     }),
     __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])('BASE_URL')),
     __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], String, _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
@@ -671,6 +849,118 @@ var Genre;
     Genre[Genre["Horror"] = 2] = "Horror";
     Genre[Genre["Thriller"] = 3] = "Thriller";
 })(Genre || (Genre = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/movie/shared/enum/movieGenre.enum.ts":
+/*!******************************************************!*\
+  !*** ./src/app/movie/shared/enum/movieGenre.enum.ts ***!
+  \******************************************************/
+/*! exports provided: MovieGenre */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieGenre", function() { return MovieGenre; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var MovieGenre;
+(function (MovieGenre) {
+    MovieGenre["Action"] = "Action";
+    MovieGenre["Comedy"] = "Comedy";
+    MovieGenre["Horror"] = "Horror";
+    MovieGenre["Thriller"] = "Thriller";
+})(MovieGenre || (MovieGenre = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/movie/shared/enum/movieWatched.ts":
+/*!***************************************************!*\
+  !*** ./src/app/movie/shared/enum/movieWatched.ts ***!
+  \***************************************************/
+/*! exports provided: MovieWatched */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieWatched", function() { return MovieWatched; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var MovieWatched;
+(function (MovieWatched) {
+    MovieWatched["True"] = "True";
+    MovieWatched["False"] = "False";
+})(MovieWatched || (MovieWatched = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/movie/shared/movie.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/movie/shared/movie.service.ts ***!
+  \***********************************************/
+/*! exports provided: MovieService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieService", function() { return MovieService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+let MovieService = class MovieService {
+    constructor(httpClient, baseUrl) {
+        this.httpClient = httpClient;
+        this.baseUrl = baseUrl;
+    }
+    getAllMovies() {
+        return this.httpClient.get(this.baseUrl + 'api/Movies');
+    }
+    getMovie(id) {
+        return this.httpClient.get(this.baseUrl + 'api/Movies/' + id);
+    }
+    add(movie) {
+        return this.httpClient.post(this.baseUrl + 'api/Movies', movie);
+    }
+    delete(id) {
+        return this.httpClient.delete(this.baseUrl + 'api/Movies/' + id);
+    }
+    update(id, movie) {
+        return this.httpClient.put(this.baseUrl + 'api/Movies/' + id, movie);
+    }
+};
+MovieService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: ['BASE_URL',] }] }
+];
+MovieService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+        providedIn: 'root'
+    }),
+    __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])('BASE_URL')),
+    __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], String])
+], MovieService);
+
 
 
 /***/ }),

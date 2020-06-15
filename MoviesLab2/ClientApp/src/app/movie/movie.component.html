@@ -30,22 +30,22 @@
             <td>{{ movie.numberOfComments }}</td>
             <td>
                 <a class="btn btn-primary" [routerLink]="['/movie', movie.id]" routerLinkActive="active">Details</a> |
-                <a class="btn btn-success">Edit</a> |
-                <a class="btn btn-danger" (click)=" delete(movie.id)" >Delete</a>
+                <a class="btn btn-warning">Edit</a> |
+                <a class="btn btn-danger" (click)=" delete(movie.id)">Delete</a>
             </td>
         </tr>
     </tbody>
 </table>
 
+<td><a class="btn btn-success" [routerLink]="['/movie-add/0']">Add movie</a></td>
 
-<p>Add a movie</p>
 
 
-<input [(ngModel)]="name" />
+<!--<input [(ngModel)]="name" />
 
 <p>{{name}}</p>
 
 
 
 <button (click)="submit()">Submit!</button>
-
+-->

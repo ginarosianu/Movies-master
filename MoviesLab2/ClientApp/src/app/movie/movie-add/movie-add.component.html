@@ -1,0 +1,115 @@
+<p>movie-add works!</p>
+<h1 id="tableLabel"> Add new movie.</h1>
+
+<div class="container">
+    <div class=" row">
+        <div class=" col-10">
+            <div class=" jumbotron">
+                <form [formGroup]="movieForm" (ngSubmit)="onSubmit(movieForm)">
+
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class=" form-control" formControlName="title" />
+                        <!--<span *ngIf="form.get('title').errors?.required">Title is required</span>-->
+                        <span *ngIf="movieForm.get('title').errors?.serverError">
+                            {{ movieForm.get('title').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class=" form-control" formControlName="description" />
+                        <!--<span *ngIf="form.get('description').errors?.required">Description is required</span>-->
+                        <span *ngIf="movieForm.get('description').errors?.serverError">
+                            {{ movieForm.get('description').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label>Genre</label>
+                        <select class=" form-control" formControlName="genre">
+                            <option value="0">Select genre</option>
+                            <option *ngFor="let movieGenre of movieGenres" [value]="movieGenre">-->
+                                <!--{{movieGenre}}-->
+                            <!--</option>
+                        </select>
+                    </div>-->
+
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <select class=" form-control" formControlName="genre">
+                            <option value="comedy">Comedy</option>
+                            <option value="drama">Drama</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Minute</label>
+                        <input type="number" class=" form-control" placeholder="0,00" formControlName="minute" />
+                        <!--<span *ngIf="form.get('minute').errors?.required">Duration is required</span>-->
+                        <span *ngIf="movieForm.get('minute').errors?.serverError">
+                            {{ movieForm.get('minute').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Year of Release</label>
+                        <input type="number" class=" form-control" formControlName="yearOfRelease" />
+                        <span *ngIf="movieForm.get('yearOfRelease').errors?.serverError">
+                            {{ movieForm.get('yearOfRelease').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Director</label>
+                        <input type="text" class=" form-control" formControlName="director" />
+                        <!--<span *ngIf="form.get('director').errors?.required">Director is required</span>-->
+                        <span *ngIf="movieForm.get('director').errors?.serverError">
+                            {{ movieForm.get('director').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="datetime" class=" form-control" placeholder="2020-06-14" formControlName="dateAdded" />
+                        <!--<span *ngIf="form.get('dateAdded').errors?.required">Date is required</span>-->
+                        <span *ngIf="movieForm.get('dateAdded').errors?.serverError">
+                            {{ movieForm.get('dateAdded').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <input type="number" class=" form-control" placeholder="0,00" formControlName="rating" />
+                        <span *ngIf="movieForm.get('rating').errors?.serverError">
+                            {{ movieForm.get('rating').errors?.serverError }}
+                        </span>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label>Watched</label>
+                        <select class=" form-control" formControlName="watched">
+                            <option value="0">Select</option>
+                            <option *ngFor="let movieWatched of movieWatcheds" [value]="movieWatched">-->
+                                <!--{{movieWatched}}-->
+                            <!--</option>
+                        </select>
+                    </div>-->
+
+
+                    <div class="form-group">
+                        <label>Watched</label>
+                        <select class=" form-control" formControlName="watched">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-secondary btnLeft" type='submit' [disabled]="!movieForm.valid">Save</button>
+                    <button class="btn btn-secondary btnRight" (click)="goBack()">Back</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
