@@ -25,25 +25,17 @@
             <td>{{ comment.important }}</td>
             <td>{{ comment.movieid }}</td>
             <td>
-                <a>Details</a> |
-                <a>Edit</a> |
-                <a>Delete</a>
+                <button class="btn btn-primary" [routerLink]="['/comment', comment.id]" routerLinkActive="active">Details</button> |
+                <button class="btn btn-warning" [routerLink]="['/comment-add', comment.id]">Edit</button> |
+                <button class="btn btn-danger" (click)=" delete(comment.id)">Delete</button>
             </td>
         </tr>
     </tbody>
 </table>
 
 
-<p>Add a comment:</p>
+<td><a class="btn btn-success" [routerLink]="['/comment-add/0']">Add comment</a></td>
 
-
-<input [(ngModel)]="name" />
-
-<p>{{name}}</p>
-
-
-
-<button (click)="submit()">Submit!</button>
 
 
 

@@ -8,9 +8,9 @@ import { Location } from '@angular/common';
 import { MovieWatched } from '../shared/enum/movieWatched';
 
 @Component({
-  selector: 'app-movie-add',
-  templateUrl: './movie-add.component.html',
-  styleUrls: ['./movie-add.component.css']
+    selector: 'app-movie-add',
+    templateUrl: './movie-add.component.html',
+    styleUrls: ['./movie-add.component.css']
 })
 export class MovieAddComponent implements OnInit {
 
@@ -36,15 +36,15 @@ export class MovieAddComponent implements OnInit {
         this.movieForm = this.fb.group({
             title: ['', Validators.required],
             description: ['', Validators.required],
-            genre:[''],
+            genre: [''],
             minute: [0, Validators.min(0)],
             yearOfRelease: [0],
-            director : [''],
+            director: [''],
             dateAdded: [''],
             rating: [0],
-            watched : ['']
+            watched: ['true']
         });
-   }
+    }
 
     getMovie() {
         var id = parseInt(this.route.snapshot.paramMap.get('id'));
@@ -64,7 +64,7 @@ export class MovieAddComponent implements OnInit {
                             director: this.movie.director,
                             dateAdded: this.movie.dateAdded,
                             rating: this.movie.rating,
-                            watched: this.movie.watched,                 
+                            watched: this.movie.watched,
                         });
                     }
                 });

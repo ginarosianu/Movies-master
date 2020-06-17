@@ -1,5 +1,5 @@
-<p>movie-add works!</p>
-<h1 id="tableLabel"> Add new movie.</h1>
+<!--<p>movie-add works!</p>-->
+<h1 id="tableLabel"> Add new movie</h1>
 
 <div class="container">
     <div class=" row">
@@ -38,8 +38,11 @@
                     <div class="form-group">
                         <label>Genre</label>
                         <select class=" form-control" formControlName="genre">
+                            <option value="action">Action </option>
                             <option value="comedy">Comedy</option>
-                            <option value="drama">Drama</option>
+                            <option value="horror">Horror </option>
+                            <option value="thriller">Thriller </option>
+                        
                         </select>
                     </div>
 
@@ -100,13 +103,13 @@
                     <div class="form-group">
                         <label>Watched</label>
                         <select class=" form-control" formControlName="watched">
-                            <option value="true">Yes</option>
+                            <option value="true" selected="selected">Yes</option>
                             <option value="false">No</option>
                         </select>
                     </div>
 
-                    <button class="btn btn-secondary btnLeft" type='submit' [disabled]="!movieForm.valid">Save</button>
-                    <button class="btn btn-secondary btnRight" (click)="goBack()">Back</button>
+                    <button class="btn btn-success float-left" type='submit' [disabled]="!movieForm.valid">Save</button>
+                    <button class="btn btn-success float-right" (click)="goBack()">Back</button>
 
                 </form>
             </div>

@@ -13,6 +13,8 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { MovieAddComponent } from './movie/movie-add/movie-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommentAddComponent } from './comment/comment-add/comment-add.component';
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MovieComponent,
         MovieDetailsComponent,
         MovieAddComponent,
+        CommentAddComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

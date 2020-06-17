@@ -29,9 +29,9 @@
             <td>{{ movie.director }}</td>
             <td>{{ movie.numberOfComments }}</td>
             <td>
-                <a class="btn btn-primary" [routerLink]="['/movie', movie.id]" routerLinkActive="active">Details</a> |
-                <a class="btn btn-warning">Edit</a> |
-                <a class="btn btn-danger" (click)=" delete(movie.id)">Delete</a>
+                <button class="btn btn-primary" [routerLink]="['/movie', movie.id]" routerLinkActive="active">Details</button> |
+                <button class="btn btn-warning" [routerLink]="['/movie-add', movie.id]">Edit</button> |
+                <button class="btn btn-danger" (click)=" delete(movie.id)">Delete</button>
             </td>
         </tr>
     </tbody>
