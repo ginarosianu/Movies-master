@@ -42,7 +42,7 @@ export class MovieAddComponent implements OnInit {
             director: [''],
             dateAdded: [''],
             rating: [0],
-            watched: ['true']
+            //watched: ['true']
         });
     }
 
@@ -64,7 +64,7 @@ export class MovieAddComponent implements OnInit {
                             director: this.movie.director,
                             dateAdded: this.movie.dateAdded,
                             rating: this.movie.rating,
-                            watched: this.movie.watched,
+                            //watched: this.movie.watched,
                         });
                     }
                 });

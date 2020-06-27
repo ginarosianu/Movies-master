@@ -7,7 +7,7 @@ export class Movie {
     director: string;
     dateAdded: string;
     rating: number;
-    watched: boolean;
+    //watched: boolean;
     commentsNumber: number;
 }
 
